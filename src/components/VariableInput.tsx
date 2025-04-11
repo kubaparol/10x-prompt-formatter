@@ -1,5 +1,5 @@
 import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "./ui/textarea";
 
 interface VariableInputProps {
   name: string;
@@ -15,12 +15,13 @@ export function VariableInput({ name, value, originalTag, onChange }: VariableIn
         <span>{name}</span>
         <span className="text-sm text-muted-foreground font-mono">{originalTag}</span>
       </Label>
-      <Input
-        type="text"
+
+      <Textarea
         id={`var-${name}`}
+        placeholder={`Value for ${name}...`}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder={`Value for ${name}...`}
+        className="min-h-[100px] font-mono"
         aria-label={`Value for variable ${name}`}
       />
     </div>
