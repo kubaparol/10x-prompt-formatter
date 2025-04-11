@@ -15,7 +15,7 @@ export function SourceEditor({ value, onChange }: SourceEditorProps) {
         placeholder="Enter your text with {{variables}} here..."
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="min-h-[200px] font-mono"
+        className="min-h-[400px] font-mono"
         aria-label="Source text with variables"
       />
     </div>

@@ -13,11 +13,14 @@ interface VariableInstance {
   value: string;
   /** Original, full tag found in source text (e.g. "{{variable}}") */
   originalTag: string;
+  /** Comment text after the variable (e.g. " <- some comment") */
+  comment?: string;
 }
 
 const usePromptParser = (sourceText: string) => {
   return useMemo(() => {
-    const regex = /\{\{([^}]+)\}\}/g;
+    // Match {{variable}} followed by optional comment starting with <-
+    const regex = /\{\{([^}]+)\}\}(\s*<-[^\n]+)?/g;
     const variables: VariableInstance[] = [];
     let match;
 
@@ -26,7 +29,8 @@ const usePromptParser = (sourceText: string) => {
         id: crypto.randomUUID(),
         name: match[1],
         value: "",
-        originalTag: match[0],
+        originalTag: match[0], // Full match including comment
+        comment: match[2], // The comment part if exists
       });
     }
 
@@ -43,6 +47,7 @@ export default function PromptFormatterApp() {
     let result = sourceText;
     variables.forEach((variable) => {
       const value = variableValues[variable.id] || "";
+      // Replace the entire match (variable + comment) with the value
       result = result.replaceAll(variable.originalTag, value);
     });
     return result;
