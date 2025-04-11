@@ -1,94 +1,76 @@
-# 10x Astro Starter
+# 10xPromptFormatter
 
-A modern, opinionated starter template for building fast, accessible, and AI-friendly web applications.
+## Table of Contents
+
+- [Project Name](#project-name)
+- [Project Description](#project-description)
+- [Tech Stack](#tech-stack)
+- [Getting Started Locally](#getting-started-locally)
+- [Project Scope](#project-scope)
+- [Project Status](#project-status)
+- [License](#license)
+
+## Project Name
+
+10xPromptFormatter
+
+## Project Description
+
+10xPromptFormatter is an application that enables dynamic text creation with built-in support for variable substitution. The app allows users to paste text containing placeholders in the format `{{variable}}`, automatically detects these variables, and creates dedicated fields for editing each instance. As users modify the values, the final text is dynamically updated and displayed in a read-only panel for easy copying.
 
 ## Tech Stack
 
-- [Astro](https://astro.build/) v5.5.5 - Modern web framework for building fast, content-focused websites
-- [React](https://react.dev/) v19.0.0 - UI library for building interactive components
-- [TypeScript](https://www.typescriptlang.org/) v5 - Type-safe JavaScript
-- [Tailwind CSS](https://tailwindcss.com/) v4.0.17 - Utility-first CSS framework
+- **Frontend:** Astro 5, React 19 for interactive components
+- **Language:** TypeScript 5
+- **Styling:** Tailwind CSS 4, Shadcn/ui for UI elements
+- **Backend:** Supabase for database and backend functionalities
+- **AI Integration:** Uses Openrouter.ai for communication with various AI models
+- **Others:** Utilizes best practices for building fast, scalable, and modern web applications
 
-## Prerequisites
+## Getting Started Locally
 
-- Node.js v22.14.0 (as specified in `.nvmrc`)
-- npm (comes with Node.js)
+### Prerequisites
 
-## Getting Started
+- [Node.js](https://nodejs.org/) (version as specified in `.nvmrc`: 22.14.0)
+- npm or yarn package manager
+
+### Installation
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/przeprogramowani/10x-astro-starter.git
-cd 10x-astro-starter
-```
+   ```sh
+   git clone <repository-url>
+   cd 10xPromptFormatter
+   ```
 
-2. Install dependencies:
+2. Install the dependencies:
 
-```bash
-npm install
-```
+   ```sh
+   npm install
+   ```
 
-3. Run the development server:
+3. Start the development server:
 
-```bash
-npm run dev
-```
+   ```sh
+   npm run dev
+   ```
 
-4. Build for production:
+Your application should now be running locally.
 
-```bash
-npm run build
-```
+## Project Scope
 
-## Available Scripts
+The primary focus of 10xPromptFormatter is to simplify the process of editing and generating dynamic texts. Key features include:
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run lint:fix` - Fix ESLint issues
+- **Automatic Variable Detection:** Recognizes and extracts all placeholders in the format `{{variable}}` from pasted text.
+- **Dynamic Field Creation:** Creates individual editable fields for every instance of the detected variables, even if the variable name is repeated.
+- **Real-time Updates:** Dynamically updates the final text as users modify the content of the text area and the individual variable fields.
+- **Read-Only Output Panel:** Displays the final generated text in a dedicated, non-editable panel for easy copying.
+- **Local and Anonymous Operation:** Designed to operate locally without requiring user authentication or persistent data storage.
 
-## Project Structure
+## Project Status
 
-```md
-.
-├── src/
-│   ├── layouts/    # Astro layouts
-│   ├── pages/      # Astro pages
-│   │   └── api/    # API endpoints
-│   ├── components/ # UI components (Astro & React)
-│   └── assets/     # Static assets
-├── public/         # Public assets
-```
-
-## AI Development Support
-
-This project is configured with AI development tools to enhance the development experience, providing guidelines for:
-
-- Project structure
-- Coding practices
-- Frontend development
-- Styling with Tailwind
-- Accessibility best practices
-- Astro and React guidelines
-
-### Cursor IDE
-
-The project includes AI rules in `.cursor/rules/` directory that help Cursor IDE understand the project structure and provide better code suggestions.
-
-### GitHub Copilot
-
-AI instructions for GitHub Copilot are available in `.github/copilot-instructions.md`
-
-### Windsurf
-
-The `.windsurfrules` file contains AI configuration for Windsurf.
-
-## Contributing
-
-Please follow the AI guidelines and coding practices defined in the AI configuration files when contributing to this project.
+This project is currently in the MVP stage. It is under active development, and user feedback is highly encouraged to refine and enhance the application's features and usability.
 
 ## License
 
-MIT
+This project is licensed under the MIT License.
