@@ -3,6 +3,9 @@ import { SourceEditor } from "./SourceEditor";
 import { VariableInputsList } from "./VariableInputsList";
 import { PreviewPanel } from "./PreviewPanel";
 import { CopyButton } from "./CopyButton";
+import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
+import { toast } from "sonner";
 
 interface VariableInstance {
   /** Unique identifier for this specific variable instance (e.g. UUID) */
@@ -66,8 +69,28 @@ export default function PromptFormatterApp() {
     }));
   };
 
+  const handleReset = () => {
+    setSourceText("");
+    setVariableValues({});
+    toast.success("All content has been cleared");
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 gap-2 w-fit ml-auto md:col-span-full">
+        <CopyButton textToCopy={formattedText} />
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={handleReset}
+          className="w-full sm:w-auto"
+          aria-label="Reset all content"
+        >
+          <Trash2 className="h-4 w-4 mr-2" />
+          Reset
+        </Button>
+      </div>
+
       <div className="space-y-6">
         <SourceEditor value={sourceText} onChange={handleSourceTextChange} />
         <VariableInputsList
@@ -78,7 +101,6 @@ export default function PromptFormatterApp() {
       </div>
       <div className="space-y-4">
         <PreviewPanel formattedText={formattedText} />
-        <CopyButton textToCopy={formattedText} />
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ export function VariableInput({ name, value, originalTag, onChange }: VariableIn
   return (
     <div className="space-y-2">
       <Label htmlFor={`var-${name}`} className="grid gap-2">
-        <span>{name}</span>
+        {name}
       </Label>
 
       <Textarea
